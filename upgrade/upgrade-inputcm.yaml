@@ -11,7 +11,7 @@ data:
   version: 4.0.19     # Helm Chart Version
   namespace: opsmx-isd # Namespace to install ISD, best not to change
   beta: "false"          # Set to true only for beta releases, default is false
-  secrets: gittoken,ldappassword,dbpassword,keystorepassword,rabbitmqpassword,saporpassword,redispassword,miniopassword,ldapconfigpassword
+  secrets: gittoken,keystorepassword,saporpassword,miniopassword
 kind: ConfigMap
 metadata:
   name: upgrade-inputcm
