@@ -55,7 +55,7 @@ fi
 sed -i 's/| *b64enc *//g' /repo/oes/charts/redis/templates/secret.yaml
 sed -i 's/| *b64enc *//g' /repo/oes/charts/openldap/templates/secret.yaml
 sed -i 's/| *b64enc *//' /repo/oes/templates/sapor-gate/sapor-gate-secret.yaml
-sed -i 's/^data:/stringData:/' /repo/oes/templates/sapor-gate/sapor-gate-secret.yaml
+sed -i 's/^stringData:/data:/' /repo/oes/templates/sapor-gate/sapor-gate-secret.yaml
 sed -i 's/{{ .Values.saporgate.config.password }}/encrypted:saporpassword:saporpassword/' /repo/oes/config/sapor-gate/gate-local.yml
 ####################################################################################################################
 helm template ${release} /repo/oes/ -f values.yaml --output-dir=/tmp/isd

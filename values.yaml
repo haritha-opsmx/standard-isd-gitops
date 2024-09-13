@@ -37,7 +37,7 @@ global:
 
   ## ldap configuration used in oes-gate, oes-platform and spinnaker gate for authentication and authorization
   ldap:
-    managerPassword: encrypted:ldappassword:ldappassword
+    managerPassword: LDAP_MANAGER_PASSWORD
     enabled: true # Set to false if you are using the saml/Okta for ISD
 
    ## Valid admin details for ISD authorization
@@ -136,13 +136,13 @@ gate:
 # Lines below this do not need to be changed except where external Redis and DBs is used
 ########################################################################################
 redis:
-  url: redis://:encrypted:redispassword:redispassword@{{ .Release.Name }}-redis-master
-  password: encrypted:redispassword:redispassword
+  url: redis://:password@{{ .Release.Name }}-redis-master
+  password: OPSMX_REDIS_PASS
 #####################################################
 db:
   url: jdbc:postgresql://oes-db:5432
   username: postgres
-  password: encrypted:dbpassword:dbpassword
+  password: OPSMX_POSTGRESQL_PASS
 ########################################################################################
 # Do not change the below parameter leave it as it is
 ########################################################################################
@@ -153,7 +153,7 @@ dbmigration:
 ########################################################################################
 rabbitmq:
   username: rabbitmq
-  password: encrypted:rabbitmqpassword:rabbitmqpassword
+  password: RABBITMQ_DEFAULT_PASS
 #####################################################
 # OpenLDAP custom configuration; will override default configuration of openldap helm chart
 openldap:
